@@ -1,3 +1,6 @@
-Board "testBoardName" is not using and was deleted
+The client Client0 is connectedNumber of clients: 1
+Board "default name board" is created by Client0
+Number of boards: 1
+The client Client0 is unavailable.
+Number of clients: "0Board "default name board" is not using and was deleted
 Number of boards: 0
-test report

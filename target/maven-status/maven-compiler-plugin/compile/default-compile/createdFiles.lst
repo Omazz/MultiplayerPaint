@@ -1,9 +1,0 @@
-AppServer.class
-AppClient.class
-client\Client$1.class
-server\Server$ClientThread.class
-server\Server.class
-client\Client$ServerMessageHandler.class
-client\Client.class
-client\Client$2.class
-client\Client$BoardPanel.class
