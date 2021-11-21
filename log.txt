@@ -1,6 +1,48 @@
 The client Client0 is connectedNumber of clients: 1
 Board "default name board" is created by Client0
 Number of boards: 1
+The client Client1 is connectedNumber of clients: 2
+Board "21oard" is created by Client1
+Number of boards: 2
+The client Client2 is connectedNumber of clients: 3
+Board "21412441" is created by Client2
+Number of boards: 3
+The client Client3 is connectedNumber of clients: 4
+Board "sdfdsfdsfd" is created by Client3
+Number of boards: 4
 The client Client0 is unavailable.
-Number of clients: "0Board "default name board" is not using and was deleted
+Number of clients: "3Board "default name board" is not using and was deleted
+Number of boards: 3
+The client Client1 is unavailable.
+Number of clients: "2Board "21oard" is not using and was deleted
+Number of boards: 2
+The client Client2 is unavailable.
+Number of clients: "1Board "21412441" is not using and was deleted
+Number of boards: 1
+The client Client3 is unavailable.
+Number of clients: "0Board "sdfdsfdsfd" is not using and was deleted
 Number of boards: 0
+The client Client0 is connectedNumber of clients: 1
+Board "board1" is created by Client0
+Number of boards: 1
+The client Client1 is connectedNumber of clients: 2
+Board "board2" is created by Client1
+Number of boards: 2
+The client Client2 is connectedNumber of clients: 3
+Board "board3" is created by Client2
+Number of boards: 3
+The client Client3 is connectedNumber of clients: 4
+Board "board4" is created by Client3
+Number of boards: 4
+The client Client4 is connectedNumber of clients: 5
+Board "board5" is created by Client4
+Number of boards: 5
+The client Client5 is connectedNumber of clients: 6
+Board "board6" is created by Client5
+Number of boards: 6
+The client Client6 is connectedNumber of clients: 7
+Board "board7" is created by Client6
+Number of boards: 7
+The client Client6 is unavailable.
+Number of clients: "6Board "board7" is not using and was deleted
+Number of boards: 6

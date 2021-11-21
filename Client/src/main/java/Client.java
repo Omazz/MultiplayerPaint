@@ -5,12 +5,15 @@ import java.io.*;
 import java.awt.image.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Client {
     private final static int WIDTH_PROGRAM = 900;
     private final static int HEIGHT_PROGRAM = 600;
     private final static int WIDTH_PAINT = 800;
     private final static int HEIGHT_PAINT = 600;
+    private final static int WIDTH_LIST = 400;
+    private final static int HEIGHT_LIST = 300;
     private final static int WIDTH_NOTIFICATION = 400;
     private final static int HEIGHT_NOTIFICATION = 50;
 
@@ -28,7 +31,7 @@ public class Client {
     private final ArrayList<String> nameOfBoards = new ArrayList<>();
     private int size = 10;
 
-    private class BoardPanel extends JPanel{
+    private class BoardPanel extends JPanel {
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             g.drawImage(board, 0, 0, this);
@@ -251,13 +254,20 @@ public class Client {
                     writeSocket.write("GIVE BOARDS\n");
                     writeSocket.flush();
                     JFrame boardsFrame = new JFrame("Boards:");
-                    boardsFrame.setLayout(new FlowLayout());
-                    boardsFrame.setSize(WIDTH_PAINT / 2, HEIGHT_PAINT);
+                    boardsFrame.setLayout(null);
+                    boardsFrame.setSize(WIDTH_LIST, HEIGHT_LIST);
+
                     boardsFrame.setResizable(false);
                     boardsFrame.setVisible(true);
+                    JPanel bigBoardPanel = new JPanel();
+                    if (nameOfBoards.size() * 100 > HEIGHT_LIST) {
+                        bigBoardPanel.setPreferredSize(new Dimension(WIDTH_LIST - 60, nameOfBoards.size() * 100));
+                    } else {
+                        bigBoardPanel.setPreferredSize(new Dimension(WIDTH_LIST - 60, HEIGHT_LIST));
+                    }
                     for (int i = 0; i < nameOfBoards.size(); i++) {
                         if (!nameOfBoards.get(i).equals("")) {
-                            JButton button = new JButton(nameOfBoards.get(i));
+                            JButton button = new JButton("Connect");
                             int finalI = i;
                             button.addActionListener(e -> {
                                 try {
@@ -273,7 +283,22 @@ public class Client {
                                     System.out.println(exception.toString());
                                 }
                             });
-                            boardsFrame.add(button);
+                            JPanel oneBoardPanel = new JPanel();
+                            oneBoardPanel.setLayout(new FlowLayout());
+                            JLabel jLabel = new JLabel( "Name: " + nameOfBoards.get(i) + "      Go:");
+                            jLabel.setFont(new Font("Serif", Font.PLAIN, 14));
+                            oneBoardPanel.add(jLabel);
+                            oneBoardPanel.add(button);
+                            bigBoardPanel.add(oneBoardPanel);
+                            if (i + 1 == nameOfBoards.size()) {
+                                JScrollPane jScrollPane = new JScrollPane();
+                                jScrollPane.setBounds(15, 15, WIDTH_LIST - 60, HEIGHT_LIST - 60);
+                                jScrollPane.setOpaque(false);
+                                jScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+                                jScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+                                jScrollPane.setViewportView(bigBoardPanel);
+                                boardsFrame.add(jScrollPane);
+                            }
                         }
                     }
                 } catch (IOException exception) {
