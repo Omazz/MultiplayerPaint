@@ -12,7 +12,6 @@ public class Server {
     private ServerSocket serverSocket = null;
     private final HashMap<String, BufferedImage> boards;
     private final ArrayList<ClientThread> clients;
-    // private final Object reportSynchronized;
 
     public class ClientThread extends Thread {
         private Socket clientSocket = null;
