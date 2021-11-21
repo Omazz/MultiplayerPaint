@@ -1,0 +1,13 @@
+The client Client0 is connectedNumber of clients: 1
+Board "default name board" is created by Client0
+Number of boards: 1
+The client Client1 is connectedNumber of clients: 2
+Board "MyBoard" is created by Client1
+Number of boards: 2
+The client Client2 is connectedNumber of clients: 3
+Board "Buterbrod" is created by Client2
+Number of boards: 3
+Board "Buterbrod" is not using and was deleted
+Number of boards: 2
+Board "default name board" is not using and was deleted
+Number of boards: 1
