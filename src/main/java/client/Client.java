@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class Client {
     private final static int WIDTH_PROGRAM = 900;
     private final static int HEIGHT_PROGRAM = 600;
-    public final static int WIDTH_PAINT = 800;
-    public final static int HEIGHT_PAINT = 600;
+    private final static int WIDTH_PAINT = 800;
+    private final static int HEIGHT_PAINT = 600;
     private final static int WIDTH_NOTIFICATION = 400;
     private final static int HEIGHT_NOTIFICATION = 50;
 

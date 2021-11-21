@@ -1,6 +1,5 @@
 package server;
 
-import client.Client;
 
 import java.io.*;
 import java.awt.*;
@@ -12,6 +11,9 @@ public class Server {
     private ServerSocket serverSocket = null;
     private final HashMap<String, BufferedImage> boards;
     private final ArrayList<ClientThread> clients;
+
+    private final static int WIDTH_PAINT = 800;
+    private final static int HEIGHT_PAINT = 600;
 
     public class ClientThread extends Thread {
         private Socket clientSocket = null;
@@ -71,12 +73,12 @@ public class Server {
 
                                 boardName = splitMessage[1];
                                 synchronized (boards) {
-                                    boards.put(boardName, new BufferedImage(Client.WIDTH_PAINT, Client.HEIGHT_PAINT, BufferedImage.TYPE_INT_RGB));
+                                    boards.put(boardName, new BufferedImage(WIDTH_PAINT, HEIGHT_PAINT, BufferedImage.TYPE_INT_RGB));
                                     graphics = boards.get(boardName).createGraphics();
                                 }
                                 synchronized (boards.get(boardName)) {
                                     graphics.setColor(Color.white);
-                                    graphics.fillRect(0, 0, Client.WIDTH_PAINT, Client.HEIGHT_PAINT);
+                                    graphics.fillRect(0, 0, WIDTH_PAINT, HEIGHT_PAINT);
                                 }
                                 sendReport("Board \"" + boardName + "\" is created by " + this.getName() + "\n");
                                 synchronized (boards) {
@@ -101,9 +103,9 @@ public class Server {
                                 synchronized (boards.get(boardName)) {
                                     graphics = boards.get(boardName).createGraphics();
                                 }
-                                int[] rgbArray = new int[Client.WIDTH_PAINT * Client.HEIGHT_PAINT];
+                                int[] rgbArray = new int[WIDTH_PAINT * HEIGHT_PAINT];
                                 synchronized (boards.get(boardName)) {
-                                    boards.get(boardName).getRGB(0, 0, Client.WIDTH_PAINT, Client.HEIGHT_PAINT, rgbArray, 0, Client.WIDTH_PAINT);
+                                    boards.get(boardName).getRGB(0, 0, WIDTH_PAINT, HEIGHT_PAINT, rgbArray, 0, WIDTH_PAINT);
                                 }
                                 synchronized (this) {
                                     for (int j : rgbArray) {
