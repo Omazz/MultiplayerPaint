@@ -16,6 +16,8 @@ public class Client {
     private final static int HEIGHT_LIST = 300;
     private final static int WIDTH_NOTIFICATION = 400;
     private final static int HEIGHT_NOTIFICATION = 50;
+    private final static int MAX_BOARD_NAME = 20;
+    private final static int MIN_BOARD_NAME = 5;
 
     private boolean isConnected = false;
     private Socket clientSocket;
@@ -205,7 +207,8 @@ public class Client {
         JButton createBoard = new JButton("Create");
         createBoard.addActionListener(event -> {
             String nameBoard = textField.getText();
-            if (nameBoard.equals("")) {
+            if (nameBoard.equals("") || nameBoard.length() < MIN_BOARD_NAME || nameBoard.length() > MAX_BOARD_NAME) {
+                createNotification("Board name should be length > 4 and < 21.");
                 frame.repaint();
                 return;
             }
@@ -285,10 +288,13 @@ public class Client {
                             });
                             JPanel oneBoardPanel = new JPanel();
                             oneBoardPanel.setLayout(new FlowLayout());
-                            JLabel jLabel = new JLabel( "Name: " + nameOfBoards.get(i) + "      Go:");
+                            StringBuilder name = new StringBuilder(nameOfBoards.get(i));
+                            JLabel jLabel = new JLabel( "Name: " + name.toString() + "      Go:");
                             jLabel.setFont(new Font("Serif", Font.PLAIN, 14));
                             oneBoardPanel.add(jLabel);
                             oneBoardPanel.add(button);
+                            button.setBackground(Color.green);
+                            oneBoardPanel.setBackground(Color.orange);
                             bigBoardPanel.add(oneBoardPanel);
                             if (i + 1 == nameOfBoards.size()) {
                                 JScrollPane jScrollPane = new JScrollPane();
