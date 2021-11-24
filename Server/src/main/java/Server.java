@@ -77,7 +77,7 @@ public class Server {
                                     graphics.setColor(Color.white);
                                     graphics.fillRect(0, 0, WIDTH_PAINT, HEIGHT_PAINT);
                                 }
-                                sendReport("Board \"" + boardName + "\" is created by " + this.getName() + "\n");
+                                sendReport("Board " + boardName + " is created by " + this.getName() + "\n");
                                 synchronized (boards) {
                                     sendReport("Number of boards: " + boards.size() + "\n");
                                 }
@@ -147,7 +147,7 @@ public class Server {
                     writeSocket.close();
                     synchronized (clients) {
                         clients.remove(this);
-                        sendReport("The client " + this.getName() + " is unavailable.\nNumber of clients: \"" + clients.size());
+                        sendReport("The client " + this.getName() + " is unavailable.\nNumber of clients: " + clients.size());
                     }
                     checkBoards(boardName);
                 }
