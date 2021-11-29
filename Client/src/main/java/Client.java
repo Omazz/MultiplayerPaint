@@ -15,7 +15,7 @@ public class Client {
     private final static int WIDTH_LIST = 400;
     private final static int HEIGHT_LIST = 300;
     private final static int WIDTH_NOTIFICATION = 400;
-    private final static int HEIGHT_NOTIFICATION = 50;
+    private final static int HEIGHT_NOTIFICATION = 150;
     private final static int MAX_BOARD_NAME = 20;
     private final static int MIN_BOARD_NAME = 5;
 
@@ -346,12 +346,16 @@ public class Client {
     }
 
     public void createNotification(String message) {
-        JFrame notification = new JFrame("Notification");
-        notification.setSize(WIDTH_NOTIFICATION, HEIGHT_NOTIFICATION);
-        notification.setResizable(false);
-        notification.setVisible(true);
-        JLabel text = new JLabel(message);
-        notification.getContentPane().add(BorderLayout.PAGE_START, text);
+        JDialog dialog = new JDialog(frame, "Error!", true);
+        dialog.setResizable(false);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dialog.setSize(WIDTH_NOTIFICATION, HEIGHT_NOTIFICATION);
+        dialog.setLayout(null);
+        JPanel panel = new JPanel();
+        panel.add(new JLabel(message));
+        panel.setBounds(50, 50, 300, 30);
+        dialog.add(panel);
+        dialog.setVisible(true);
     }
 
     public void addTool(JPanel panel, String tool) {

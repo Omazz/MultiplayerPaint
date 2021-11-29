@@ -1,6 +1,3 @@
 The client Client0 is connectedNumber of clients: 1
-Board default name board is created by Client0
-Number of boards: 1
-The client Client1 is connectedNumber of clients: 2
-The client Client1 is unavailable.
-Number of clients: 1
+The client Client0 is unavailable.
+Number of clients: 0
