@@ -32,7 +32,7 @@ public class Server {
 
         @Override
         public void run() {
-            sendReport("The client " + this.getName() + " is connected");
+            sendReport("The client " + this.getName() + " is connected\n");
             synchronized (clients) {
                 sendReport("Number of clients: " + clients.size() + "\n");
             }
@@ -147,7 +147,7 @@ public class Server {
                     writeSocket.close();
                     synchronized (clients) {
                         clients.remove(this);
-                        sendReport("The client " + this.getName() + " is unavailable.\nNumber of clients: " + clients.size());
+                        sendReport("The client " + this.getName() + " is unavailable.\nNumber of clients: " + clients.size() + "\n");
                     }
                     checkBoards(boardName);
                 }

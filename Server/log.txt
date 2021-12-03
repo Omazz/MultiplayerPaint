@@ -1,3 +1,0 @@
-Board "testBoardName" is not using and was deleted
-Number of boards: 0
-test report

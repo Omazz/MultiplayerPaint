@@ -1,3 +1,0 @@
-The client Client0 is connectedNumber of clients: 1
-The client Client0 is unavailable.
-Number of clients: 0
